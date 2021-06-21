@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.todo-list-container {
+    padding: 10px;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    margin: 0.3rem;
+    padding: 0.3rem;
+    display: inline-block; 
+}

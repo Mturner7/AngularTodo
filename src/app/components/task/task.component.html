@@ -1,0 +1,26 @@
+<div class="task-container">
+    
+    <div *ngIf="editmode == false" class="task-item">
+       
+        <div *ngIf="task.complete == true">
+            <span style="color: blue;">Complete</span>
+            <p style="text-decoration: line-through;">{{ task.title }}</p>
+            <button (click)="emitDeleteTask()">Delete</button>
+        </div>
+
+        <div *ngIf="task.complete == false">
+            <div>{{ task.title }}</div>
+            <button (click)="editmode = true">Edit</button>
+            <button (click)="markComplete()">Complete</button>
+            <button (click)="emitDeleteTask()">Delete</button>
+        </div>
+        
+    </div>
+
+    <div *ngIf="editmode == true" class="task-item">
+        <div><input [(ngModel)]="task.title" type="text" (keyup.enter)="saveTask()"/></div>
+        <button (click)="saveTask()">Save</button>
+        <button (click)="markComplete()">Complete</button>
+        <button (click)="emitDeleteTask()">Delete</button>
+    </div>
+</div>

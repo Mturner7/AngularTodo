@@ -1,0 +1,28 @@
+<h1>Todo List</h1>
+<div class="todo-list-container">
+    
+    <div *ngIf="tasks.length < 1">
+        <div class="congrats-msg">Congratulations! There are no more tasks to complete!</div>
+        <span *ngIf="adding == false">
+            <button (click)="adding = true">Add a task</button>        
+        </span>
+        <div *ngIf="adding == true" class="new-task-item">
+            <app-task [editmode]="true" [newTask]="true" (create)="createTask($event)"></app-task>
+        </div>    
+    </div>
+    
+    <div *ngIf="tasks.length > 0">
+        <div class="searchbar">Search: <input (keyup)="filterTasks($event)" type="text"/></div>
+        <span *ngIf="adding == false"><button (click)="adding = true">Add a task</button></span>
+        <div *ngIf="adding == true" class="new-task-item">
+            <app-task [editmode]="true" [newTask]="true" (create)="createTask($event)"></app-task>
+        </div>
+        <div *ngFor="let nextTask of filteredTasks">
+            <ul class="todo-list">
+               <li class="todo-list-item">
+                   <app-task [task]="nextTask" (delete)="deleteTask($event)"></app-task>
+               </li> 
+            </ul>
+        </div>
+    </div>
+</div>
