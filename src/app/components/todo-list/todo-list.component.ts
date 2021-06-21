@@ -15,9 +15,6 @@ export class TodoListComponent implements OnInit {
   tasks : Array<Task> = TaskList; //local reference of tasklist
   filteredTasks : Array<Task> = Object.assign([], this.tasks);
 
-
-  @Output() remove: EventEmitter<Task> = new EventEmitter<Task>();
-
   constructor() { }
 
   ngOnInit(): void {
